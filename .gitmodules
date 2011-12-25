@@ -1,0 +1,3 @@
+[submodule "recipes"]
+	path = recipes
+	url = git@github.com:davidkaneda/compass-recipes.git
