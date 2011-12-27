@@ -12,47 +12,77 @@
        More info: h5bp.com/b/378 -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title></title>
+  <title>David Kaneda</title>
   <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="author" content="David Kaneda">
 
   <!-- Mobile viewport optimized: h5bp.com/viewport -->
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/dk.css">
   
   <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
 
   <!-- All JavaScript at the bottom, except this Modernizr build incl. Respond.js
        Respond is a polyfill for min/max-width media queries. Modernizr enables HTML5 elements & feature detects; 
        for optimal performance, create your own custom Modernizr build: www.modernizr.com/download/ -->
-  <script src="js/libs/modernizr-2.0.6.min.js"></script>
+
+  <script src="/js/libs/modernizr-2.0.6.min.js"></script>
+  <script type="text/javascript" src="http://use.typekit.com/aox1bty.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 
 <body>
-  <header>
+  <div class="center">
+    
+    <header>
+    <img src="/img/head.png">
+    </header>
+    <div role="main" class="gesta">
+      <h1>I craft digital experiences that define brands and push the limits of web technology.</h1>
 
-  </header>
-  <div role="main">
+      <h3>David Kaneda, Creative Web Technologist</h3>
+      <h4>Let&#8217;s chat: <a href="#">hi@davidkaneda.com</a></h4>
 
+      <nav class="social">
+        <ul>
+          <li><a href="https://twitter.com/davidkaneda" class="twitter-follow-button">Follow @davidkaneda</a></li>
+
+          <li><a class="social-twitter" href="https://twitter.com/davidkaneda">Twitter</a></li>
+          <li><a class="social-facebook" href="https://facebook.com/dkaneda">Facebook</a></li>
+          <li><a class="social-tumblr" href="https://9-bits.com">Tumblr</a></li>
+          <li><a class="social-linkedin" href="http://www.linkedin.com/in/dkaneda">LinkedIn</a></li>
+          <li><a class="social-github" href="https://github.com/davidkaneda">Github</a></li>
+          <li><a class="social-googleplus" href="https://plus.google.com/100438603620914963861">Google Plus</a></li>
+        </ul>
+    </div>
   </div>
-  <footer>
 
+  <footer id="page-footer">
+    <nav class="center">
+      <ul>
+        <li><a href="projects/">Projects</a></li>
+        <li><a href="projects/sencha">Sencha</a></li>
+        <li><a href="tumblogs/">Tumblogs</a></li>
+        <li><a href="speaking/">Speaking</a></li>
+      </ul>
+    </nav>
   </footer>
-
 
   <!-- JavaScript at the bottom for fast page loading -->
 
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+  <script>window.jQuery || document.write('<script src="/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
 
-
+  <script defer src="/js/mylibs/underscore-1.2.2.js"></script>
+  <script defer src="/js/mylibs/backbone-min.js"></script>
   <!-- scripts concatenated and minified via build script -->
-  <script defer src="js/plugins.js"></script>
-  <script defer src="js/script.js"></script>
+  <script defer src="/js/plugins.js"></script>
+  <script defer src="/js/script.js"></script>
+
   <!-- end scripts -->
 
 
@@ -71,6 +101,6 @@
     <script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
     <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
   <![endif]-->
-
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </body>
 </html>

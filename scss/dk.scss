@@ -1,0 +1,106 @@
+@import 'compass', 'recipes';
+
+$background-color: #111;
+
+$freight-fs: freight-sans-pro, sans-serif;
+// $omnes-fs: omnes-pro, sans-serif;
+$gesta-fs: gesta, sans-serif;
+
+// $rooney-fs: rooney-web, sans-serif;
+// $calluna-fs: calluna, sans-serif;
+$skolar-fs: skolar, serif;
+
+body {
+    @include background(
+        background_noise($size: 120, $monochrome: true, $opacity: .05, $intensity: 1),
+        $background-color
+    );
+    font-size: 15px;
+    @include color-by-background($background-color, 90);
+    font-family: $gesta-fs;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    margin: 100px 0 200px;
+}
+
+a {
+    text-decoration: none;
+    @include color-by-background($background-color);
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+h1 {
+    margin-top: 30px;
+    font-weight: 200;
+    font-family: $skolar-fs;
+}
+
+h3 {
+    font-weight: 900;
+    font-size: 15px;
+    @include color-by-background($background-color, 60);
+}
+
+.center {
+    width: 700px;
+    margin: 0 auto;
+}
+
+#page-footer {
+    position: fixed;
+    bottom: 0;
+    background-color: #fff;
+    width: 100%;
+    left: 0;
+    @include color-by-background(#fff);
+
+    a {
+        @include color-by-background(#fff);
+    }
+
+    nav {
+        padding: 20px 50px;
+        font-weight: bold;
+        font-size: 21px;
+
+        ul {
+            @include horizontal-list;
+
+            a {
+                display: inline-block;
+                padding: 10px;
+            }
+        }
+    }
+}
+
+$social-spacing: 4px;
+@import "social/*.png";
+@include all-social-sprites(true);
+
+nav.social {
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        display: inline;
+        @include transform(translateZ(0));
+    }
+
+    a {
+        display: inline-block;
+        text-indent: -9999px;
+        @include opacity(.5);
+        @include transition(.3s ease-in-out);
+        padding: 2px;
+        &:hover {
+            @include opacity(1);
+        }
+    }
+}

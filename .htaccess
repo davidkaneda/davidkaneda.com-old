@@ -1,3 +1,8 @@
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.html [NC,L]
+
+
 # Apache configuration file
 # httpd.apache.org/docs/2.2/mod/quickreference.html
 
