@@ -3,21 +3,23 @@
 $background-color: #111;
 
 $freight-fs: freight-sans-pro, sans-serif;
-// $omnes-fs: omnes-pro, sans-serif;
-$gesta-fs: gesta, sans-serif;
-
-// $rooney-fs: rooney-web, sans-serif;
-// $calluna-fs: calluna, sans-serif;
 $skolar-fs: skolar, serif;
 
 body {
-    @include background(
-        background_noise($size: 120, $monochrome: true, $opacity: .05, $intensity: 1),
-        $background-color
-    );
+    // @include background(
+    //     background_noise($size: 120, $monochrome: true, $opacity: .05, $intensity: 1),
+    //     $background-color
+    // );
+
+    background: #000 url(../img/me-big.jpg) right center fixed no-repeat;
+    -moz-background-size: cover;
+    background-size: cover;
+
+    @include transition(background-color 1s ease-in-out);
+
     font-size: 15px;
     @include color-by-background($background-color, 90);
-    font-family: $gesta-fs;
+    font-family: $freight-fs;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     margin: 100px 0 200px;
@@ -46,19 +48,20 @@ h3 {
 
 .center {
     width: 700px;
-    margin: 0 auto;
+    margin: 0 0 0 50px;
 }
 
 #page-footer {
     position: fixed;
     bottom: 0;
-    background-color: #fff;
+    // @include background-gradient(#222, recessed);
+
     width: 100%;
     left: 0;
-    @include color-by-background(#fff);
+    // @include color-by-background(#222);
 
     a {
-        @include color-by-background(#fff);
+        @include color-by-background(#222);
     }
 
     nav {
@@ -67,7 +70,12 @@ h3 {
         font-size: 21px;
 
         ul {
-            @include horizontal-list;
+            text-align: center;
+            list-style-type: none;
+
+            li {
+                display: inline;
+            }
 
             a {
                 display: inline-block;
@@ -98,7 +106,6 @@ nav.social {
         text-indent: -9999px;
         @include opacity(.5);
         @include transition(.3s ease-in-out);
-        padding: 2px;
         &:hover {
             @include opacity(1);
         }
