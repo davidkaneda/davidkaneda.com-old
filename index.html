@@ -36,19 +36,42 @@
 
 <body>
   <div class="center">
-    
-    <header>
-    <img src="/img/head.png">
-    </header>
-    <div role="main" class="gesta">
-      <h1>I craft digital experiences that define brands and push the limits of web technology.</h1>
+    <div role="main" id="content" class="firstrun">
+      <header id="page-header">
+        <a href="/"><img src="/img/head.png"></a>
+        <nav>
+          <ul>
+            <li><a href="/projects/">Projects</a></li>
+            <li><a href="/tumblogs/">Tumblogs</a></li>
+            <li><a href="/presentations/">Presentations</a></li>
+          </ul>
+        </nav>
+      </header>
+      <div id="home">
+        <h1>I create web experiences that build brands <br>and encourage interaction.</h1>
 
-      <h3>David Kaneda, Creative Web Technologist</h3>
-      <h4>Let&#8217;s chat: <a href="#">hi@davidkaneda.com</a></h4>
+        <h3>David Kaneda, Creative Web Technologist</h3>
+        <h4>Let&#8217;s chat: <a href="#">hi@davidkaneda.com</a></h4>
+      </div>
+      <div id="list">
+        <script type="text/tpl" id="project-tpl">
+          <div class="project">
+            <div class="badge" style="background-image: url({{avatar}});">
+            </div>
+            <h3>{{name}}</h3>
+          </div>
+        </script>
+      </div>
+      <div id="presentations">
+        <h1>Presentations</h1>
+        <p>I occassionally speak at conferences about HTML5, CSS3, mobile app strategy, and design. If you are interested in having me speak at your event, let me know, dopey.</p>
+      </div>
+      <div id="project-detail">
 
+      </div>
       <nav class="social">
         <ul>
-          <li><a href="https://twitter.com/davidkaneda" class="twitter-follow-button">Follow @davidkaneda</a></li>
+          <li><a href="https://twitter.com/davidkaneda" class="twitter-follow-button" data-width="150">Follow @davidkaneda</a></li>
 
           <li><a class="social-twitter" href="https://twitter.com/davidkaneda">Twitter</a></li>
           <li><a class="social-facebook" href="https://facebook.com/dkaneda">Facebook</a></li>
@@ -57,19 +80,18 @@
           <li><a class="social-github" href="https://github.com/davidkaneda">Github</a></li>
           <li><a class="social-googleplus" href="https://plus.google.com/100438603620914963861">Google Plus</a></li>
         </ul>
-    </div>
+    </nav>
   </div>
 
+
   <footer id="page-footer">
-    <nav class="center">
-      <ul>
-        <li><a href="projects/">Projects</a></li>
-        <li><a href="projects/sencha">Sencha</a></li>
-        <li><a href="tumblogs/">Tumblogs</a></li>
-        <li><a href="speaking/">Speaking</a></li>
-      </ul>
-    </nav>
+
   </footer>
+
+  <script type="text/tpl" id="detail-tpl">
+    <h1>{{name}}</h1>
+    {{description}}
+  </script>
 
   <!-- JavaScript at the bottom for fast page loading -->
 
@@ -78,13 +100,22 @@
   <script>window.jQuery || document.write('<script src="/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
 
   <script defer src="/js/mylibs/underscore-1.2.2.js"></script>
+  <script defer src="/js/mylibs/jquery.isotope.min.js"></script>
   <script defer src="/js/mylibs/backbone-min.js"></script>
   <!-- scripts concatenated and minified via build script -->
   <script defer src="/js/plugins.js"></script>
   <script defer src="/js/script.js"></script>
 
-  <!-- end scripts -->
+  <!-- The pieces -->
+  <script defer src="/js/app/controller.js"></script>
+  <script defer src="/js/app/collections/tumblogs.js"></script>
+  <script defer src="/js/app/collections/projects.js"></script>
 
+  <script defer src="/js/app/views/app.js"></script>
+  <script defer src="/js/app/views/projects.js"></script>
+  <script defer src="/js/app/views/thumbnail.js"></script>
+
+  <!-- end scripts -->
 
   <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
        mathiasbynens.be/notes/async-analytics-snippet -->

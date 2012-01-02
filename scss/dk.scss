@@ -1,24 +1,43 @@
+$default-text-contrast: 50;
+
 @import 'compass', 'recipes';
 
 $background-color: #111;
+$bg-list: #000;
 
 $freight-fs: freight-sans-pro, sans-serif;
 $skolar-fs: skolar, serif;
 
-body {
-    // @include background(
-    //     background_noise($size: 120, $monochrome: true, $opacity: .05, $intensity: 1),
-    //     $background-color
-    // );
+@mixin color-skin($name, $color) {
 
+    .#{$name} & {
+        nav a {
+            @include transition;
+            @include color-by-background($color, 50);
+
+            &.current {
+                @include color-by-background($color, 50);            
+            }
+        }
+
+        background-color: $color;
+        @include color-by-background($color);
+
+        h3 {
+            @include color-by-background($color, 40);
+        }
+    }
+
+    a {
+        @include color-by-background($color);
+    }
+}
+
+body {
     background: #000 url(../img/me-big.jpg) right center fixed no-repeat;
     -moz-background-size: cover;
     background-size: cover;
-
-    @include transition(background-color 1s ease-in-out);
-
     font-size: 15px;
-    @include color-by-background($background-color, 90);
     font-family: $freight-fs;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -27,7 +46,6 @@ body {
 
 a {
     text-decoration: none;
-    @include color-by-background($background-color);
 
     &:hover {
         text-decoration: underline;
@@ -43,7 +61,6 @@ h1 {
 h3 {
     font-weight: 900;
     font-size: 15px;
-    @include color-by-background($background-color, 60);
 }
 
 .center {
@@ -51,26 +68,63 @@ h3 {
     margin: 0 0 0 50px;
 }
 
-#page-footer {
-    position: fixed;
-    bottom: 0;
-    // @include background-gradient(#222, recessed);
+#content {
+    width: 45%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 5%;
+    @include background(
+        background_noise($size: 120, $monochrome: true, $opacity: .05, $intensity: 1),
+        $background-color
+    );
 
-    width: 100%;
-    left: 0;
-    // @include color-by-background(#222);
+    @include color-skin('presentations', #658B31);
+    @include color-skin('list', #eee);
+    @include color-skin('home', #33A5F5);
+    @include color-skin('project-detail', #222);
 
-    a {
-        @include color-by-background(#222);
+    .presentations &, .list & {
+        width: 90%;
     }
 
+    .project-detail & {
+
+        nav {
+            opacity: 0;
+        }
+
+        width: 20%;
+    }
+
+    // Prevents animating the first one...
+    body:not(.firstrun) & {
+        @include transition(all 400ms ease-in-out);
+    }
+
+    > div {
+        margin: 200px 40px 20px;
+    }
+}
+
+#page-header {
+    margin: 20px;
+    z-index: 20;
+    position: relative;
+
     nav {
-        padding: 20px 50px;
         font-weight: bold;
-        font-size: 21px;
+        font-size: 15px;
+        text-transform: uppercase;
+        font-weight: 300;
+        letter-spacing: 1px;
+        position: absolute;
+        left: 60px;
+        top: 10px;
 
         ul {
-            text-align: center;
+            margin: 0;
+            padding: 0;
             list-style-type: none;
 
             li {
@@ -85,11 +139,28 @@ h3 {
     }
 }
 
+#page-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}
+
 $social-spacing: 4px;
 @import "social/*.png";
 @include all-social-sprites(true);
 
 nav.social {
+    position: absolute;
+    bottom: 40px;
+    right: 0px;
+    background-color: rgba(#000, .9);
+
+    .follow-button {
+        margin: 4px -30px 3px 0;
+
+    }
+
     ul {
         list-style-type: none;
         margin: 0;
@@ -99,6 +170,7 @@ nav.social {
     li {
         display: inline;
         @include transform(translateZ(0));
+        margin-right: 3px;
     }
 
     a {
@@ -110,4 +182,23 @@ nav.social {
             @include opacity(1);
         }
     }
+}
+
+$badge-size: 80px;
+
+.project {
+    width: 180px;
+    height: 140px;
+    margin: 10px;
+    text-align: center;
+
+    .badge {
+        display: block;
+        margin: 0 auto 4px;
+        @include bevel;
+        @include circle($badge-size);
+        @include effect-glass($border-radius: $badge-size);
+        background-size: $badge-size;
+    }
+
 }
