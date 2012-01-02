@@ -15,7 +15,7 @@ DK.AppController = Backbone.Router.extend({
     },
 
     tumblogsController: function(tumblog){
-        this.stage.setLayout('list');
+        this.stage.setLayout('tumblr');
     },
 
     projectsController: function(project){

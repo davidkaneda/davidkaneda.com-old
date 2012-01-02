@@ -1,27 +1,28 @@
 DK.views.AppView = Backbone.View.extend({
     el: $(document.body),
     hasRestored: false,
-    currentView: null,
+    currentView: $('#home'),
 
     setLayout: function(layout){
+        this.el.one('webkitTransitionEnd', function(){
+            console.log('transition ending for ' + layout);
+        });
+
         if (this.layout) {
             this.el.removeClass(this.layout);
         }
         this.layout = layout;
         this.el.addClass(layout);
 
-        if (layout === list) {
-            
-        }
-        this.el.one('webkitTransitionEnd', function(){
-            console.log('transition ending for ' + layout);
-        });
+        var nextView = this.$('#' + layout);
 
-        // this.$('> div > div').hide();
-
-        if (this.$('#' + layout)) {
-            this.$('#' + layout).show();
+        if (nextView) {
+            nextView.addClass('current');
         }
+        if (this.currentView) {
+            this.currentView.removeClass('current');
+        }
+        this.currentView = nextView;
 
         if (layout != 'home') {
             this.hideDescription();

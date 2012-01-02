@@ -34,9 +34,8 @@
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 
-<body>
-  <div class="center">
-    <div role="main" id="content" class="firstrun">
+<body class="firstrun">
+  <div role="main" id="content">
       <header id="page-header">
         <a href="/"><img src="/img/head.png"></a>
         <nav>
@@ -83,11 +82,6 @@
     </nav>
   </div>
 
-
-  <footer id="page-footer">
-
-  </footer>
-
   <script type="text/tpl" id="detail-tpl">
     <h1>{{name}}</h1>
     {{description}}
@@ -108,7 +102,6 @@
 
   <!-- The pieces -->
   <script defer src="/js/app/controller.js"></script>
-  <script defer src="/js/app/collections/tumblogs.js"></script>
   <script defer src="/js/app/collections/projects.js"></script>
 
   <script defer src="/js/app/views/app.js"></script>
