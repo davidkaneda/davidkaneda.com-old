@@ -1,12 +1,14 @@
 require('lib/setup')
 
 Spine = require('spine')
+Page = require('controllers/page');
+
 Projects = require('controllers/projects');
 Project = require('models/project')
 
-class App extends Spine.Controller
+class App extends Page
   events:
-      "click #page-header a, .project": "navClick"
+      "click #page-header a, a[rel=internal]": "navClick"
 
   constructor: ->
     super
@@ -16,10 +18,16 @@ class App extends Spine.Controller
       "/": @home
       "*unknown": -> @navigate '/', true
 
+    @$('.social a').attr('target', '_blank');
+
+
     Spine.Route.setup(history: true)
 
+    # Added after current function scope
+    # to avoid transition on first screen.
+    # (Combined with body.routed #content { @include transition... })
     setTimeout =>
-      @el.removeClass 'firstrun', 30
+      @el.addClass 'routed', 0
   
   presentations: ->
     @switchClass 'presentations'
@@ -28,15 +36,15 @@ class App extends Spine.Controller
     @pc = new Projects() unless @pc
     @switchClass if params.id then 'project-detail' else 'projects'
 
-    Project.bind 'refresh', =>
-      @pc.loadRecord(params.id) if params.id
+    if params.id then @pc.hasLoaded.done => @pc.loadRecord params.id
   
   home: ->
+    @setTitle('David Kaneda');
     @switchClass 'home'
 
   switchClass: (name) ->
     # Switch the body class
-    @el.removeClass @currentClass
+    @el.removeClass @currentClass if @currentClass
     @el.addClass name
 
     # Switch the current div

@@ -125,7 +125,7 @@ h3 {
     }
 
     // Prevents animating the first one...
-    body:not(.firstrun) & {
+    body.routed & {
         @include transition(all 350ms ease-in-out);
     }
     > div {

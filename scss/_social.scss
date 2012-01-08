@@ -23,7 +23,9 @@ nav.social {
         display: inline-block;
         text-indent: -9999px;
         @include opacity(.3);
-        @include transition(2s ease-in-out);
+        @include transition(400ms ease-in-out);
+        @include transform(translate3d(0,0,0));
+
         -webkit-backface-visibility: hidden;
 
         &:hover {

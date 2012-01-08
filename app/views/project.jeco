@@ -1,6 +1,6 @@
 <% if @projects.length: %>
   <% for project in @projects: %>
-    <a href="/projects/<%= project.stub %>" class="project">
+    <a rel="internal" href="/projects/<%= project.stub %>" class="project">
     <h2><%= project.name %></h2>
     </a>
   <% end %>
