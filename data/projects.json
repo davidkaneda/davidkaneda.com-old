@@ -15,8 +15,21 @@
   "description": "<h3>Sencha Project description.</h3><p>Body</p><ul><li>List item 1</li><li>List item 2</li></ul>"
 
 }, {
+  "name": "jQTouch",
+  "stub": "jqtouch",
+  "avatar": "https://twimg0-a.akamaihd.net/profile_images/388978113/jqt.png",
+  "description": "<h3>Sencha Project description.</h3><p>Body</p><ul><li>List item 1</li><li>List item 2</li></ul>"
+}, {
   "name": "Compass Recipes",
   "stub": "recipes",
   "avatar": "Avatar!",
   "new": true
+}, {
+  "name": "9-bits",
+  "stub": "9bits",
+  "avatar": ""
+}, {
+  "name": "WebKitBits",
+  "stub": "webkitbits",
+  "avatar": ""
 }]

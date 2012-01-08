@@ -1,0 +1,14 @@
+{
+  "main": "./app/index",
+  "css": "./css/",
+  "public": "./js",
+  "dependencies": [
+    "spine",
+    "spine/lib/local",
+    "spine/lib/ajax",
+    "spine/lib/route",
+    "spine/lib/tmpl",
+    "spine/lib/manager"
+  ],
+  "libs": []
+}

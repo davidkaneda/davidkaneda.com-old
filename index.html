@@ -40,33 +40,24 @@
         <a href="/"><img src="/img/head.png"></a>
         <nav>
           <ul>
-            <li><a href="/projects/">Projects</a></li>
-            <li><a href="/tumblogs/">Tumblogs</a></li>
-            <li><a href="/presentations/">Presentations</a></li>
+            <li><a id="nav-home" href="/">David Kaneda</a></li>
+            <li><a id="nav-projects" href="/projects/">Projects</a></li>
+            <li><a id="nav-presentations" href="/presentations/">Presentations</a></li>
           </ul>
         </nav>
       </header>
       <div id="home">
-        <h1>I create web experiences that build brands <br>and encourage interaction.</h1>
+        <h1>I design and build some <a href="/projects/">cool stuff</a> using web technology.</h1>
 
         <h3>David Kaneda, Creative Web Technologist</h3>
         <h4>Let&#8217;s chat: <a href="#">hi@davidkaneda.com</a></h4>
       </div>
-      <div id="list">
-        <script type="text/tpl" id="project-tpl">
-          <div class="project">
-            <div class="badge" style="background-image: url({{avatar}});">
-            </div>
-            <h3>{{name}}</h3>
-          </div>
-        </script>
+      <div id="projects">
+        <h1>Projects</h1>
       </div>
       <div id="presentations">
         <h1>Presentations</h1>
-        <p>I occassionally speak at conferences about HTML5, CSS3, mobile app strategy, and design. If you are interested in having me speak at your event, let me know, dopey.</p>
-      </div>
-      <div id="project-detail">
-
+        <p>I occassionally speak at conferences about HTML5, CSS3, mobile app strategy, and design. If you are interested in having me speak at your event, <a href="#">drop me a line</a>.</p>
       </div>
       <nav class="social">
         <ul>
@@ -81,33 +72,26 @@
         </ul>
     </nav>
   </div>
-
-  <script type="text/tpl" id="detail-tpl">
-    <h1>{{name}}</h1>
-    {{description}}
-  </script>
-
+  
   <!-- JavaScript at the bottom for fast page loading -->
 
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
 
-  <script defer src="/js/mylibs/underscore-1.2.2.js"></script>
-  <script defer src="/js/mylibs/jquery.isotope.min.js"></script>
-  <script defer src="/js/mylibs/backbone-min.js"></script>
   <!-- scripts concatenated and minified via build script -->
   <script defer src="/js/plugins.js"></script>
-  <script defer src="/js/script.js"></script>
+  <script src="/js/application.js"></script>
+  
+  <script type="text/javascript" charset="utf-8">
+    var exports = this;
+    $(function(){
+      var App = require("index");
 
-  <!-- The pieces -->
-  <script defer src="/js/app/controller.js"></script>
-  <script defer src="/js/app/collections/projects.js"></script>
-
-  <script defer src="/js/app/views/app.js"></script>
-  <script defer src="/js/app/views/projects.js"></script>
-  <script defer src="/js/app/views/thumbnail.js"></script>
-
+      exports.app = new App({el: $("body")});      
+    });
+  </script>
+  
   <!-- end scripts -->
 
   <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
