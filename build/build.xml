@@ -566,7 +566,7 @@
 
 
     <!-- HTML -->
-    <target name="-usemin" depends="-js.scripts.concat,-css" description="(PRIVATE) Replaces references to non-minified scripts">
+    <target name="-usemin" depends="-js.scripts.concat" description="(PRIVATE) Replaces references to non-minified scripts">
         <echo message="Switching to minified js files..."/>
 
         <!-- Changes to style.css or scripts.js mean that the html must be updated, and it will be.

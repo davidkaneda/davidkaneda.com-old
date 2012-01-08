@@ -1,7 +1,19 @@
 <?xml version="1.0"?>
 <!DOCTYPE project>
-<project name="Project Build" default="build" basedir="../">
+<project name="Project Build" default="dkbuild" basedir="../">
 	
     <!-- Use this file to define any custom build targets (for example, automatically deploying via FTP). -->
-
+    <!-- Removes the CSS stuff -->
+    <target name="dkbuild"
+            depends="-intro,
+                     -usemin,
+                     -js.all.minify,
+                     -js.main.concat,
+                     -js.mylibs.concat,
+                     -js.scripts.concat,
+                     -manifest,
+                     -htmlcompress,
+                     -imagespng,
+                     -imagesjpg,
+                     -copy"/>
 </project>
