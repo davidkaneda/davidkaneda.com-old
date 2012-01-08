@@ -1,0 +1,232 @@
+$default-text-contrast: 50;
+
+@import 'compass', 'recipes';
+
+$background-color: #111;
+$bg-list: #000;
+$blue: #33A5F5;
+
+$freight-fs: freight-sans-pro, sans-serif;
+$skolar-fs: skolar, serif;
+
+@mixin color-skin($name, $color) {
+
+    .#{$name} & {
+        nav {
+            @include color-by-background($color, 15);
+        }
+        nav a {
+            @include color-by-background($color, 50);
+
+            &:hover {
+                @include text-shadow(0 0 2px rgba($blue, .5), 0 0 8px rgba(lighten($blue, 20), .3));
+            }
+
+            &.current {
+                @include color-by-background($color, 50);            
+            }
+        }
+
+        background-color: $color;
+        @include color-by-background($color);
+
+        h3 {
+            @include color-by-background($color, 40);
+        }
+    }
+
+    a {
+        @include color-by-background($color);
+    }
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #000 url(../img/me-big.jpg) right center fixed no-repeat;
+    -moz-background-size: cover;
+    background-size: cover;
+    font-size: 15px;
+    font-family: $freight-fs;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+a {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+h1 {
+    margin-top: 30px;
+    font-weight: 200;
+    font-family: $skolar-fs;
+}
+
+h3 {
+    font-weight: 900;
+    font-size: 15px;
+}
+
+#content {
+    top: 0;
+    left: 0;
+    position: relative; /* needed for footer positioning*/    
+    height: auto !important; /* real browsers */
+    height: 100%; /* IE6: treaded as min-height*/
+
+    min-height: 100%; /* real browsers */
+
+    width: 45%;
+
+    margin-left: 5%;
+    @include background(
+        background_noise($size: 120, $monochrome: true, $opacity: .05, $intensity: 1),
+        $background-color
+    );
+
+    @include color-skin('presentations', #111);
+    @include color-skin('list', #eee);
+    @include color-skin('tumblr', #2C4762);
+
+    @include color-skin('home', $blue);
+    @include color-skin('project-detail', #111);
+
+    .presentations &, .list &, .tumblr & {
+        width: 90%;
+    }
+
+    .project-detail & {
+        nav {
+            opacity: 0;
+        }
+
+        width: 20%;
+    }
+
+    // Prevents animating the first one...
+    body:not(.firstrun) & {
+        @include transition(all 400ms ease-in-out);
+    }
+    > div {
+        margin: 40px 40px 20px;
+        display: none;
+
+        &.current {
+            display: block;
+        }
+    }
+
+    .home & > div {
+        margin: 200px 40px 20px;
+    }
+
+    p {
+        font-size: 1.7em;
+        line-height: 1.3em;
+    }
+}
+
+#page-header {
+    margin: 0;
+    z-index: 20;
+    position: relative;
+    padding-top: 20px;
+    padding-left: 20px;
+
+    nav {
+        @include transition(all 100ms ease-in-out);
+        font-size: 15px;
+        text-transform: uppercase;
+        font-weight: 300;
+        letter-spacing: 1px;
+        position: absolute;
+        left: 90px;
+        top: 30px;
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        li {
+            display: inline;
+            &:after {
+                content: '/';
+            }
+        }
+        a {
+            @include transition(all 100ms ease-in-out);
+            display: inline-block;
+            padding: 10px 7px;
+        }
+    }
+}
+
+#page-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}
+
+$social-spacing: 4px;
+@import "social/*.png";
+@include all-social-sprites(true);
+
+nav.social {
+    position: absolute;
+    bottom: 40px;
+    right: 0px;
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        display: inline;
+        @include transform(translateZ(0));
+        margin-right: $social-spacing;
+    }
+
+    a {
+        display: inline-block;
+        text-indent: -9999px;
+        @include opacity(.5);
+        @include transition(.3s ease-in-out);
+        &:hover {
+            @include opacity(1);
+        }
+    }
+}
+
+$badge-size: 80px;
+
+.project {
+    width: 180px;
+    height: 140px;
+    margin: 10px;
+    text-align: center;
+
+    .badge {
+        display: block;
+        margin: 0 auto 4px;
+        @include bevel;
+        @include circle($badge-size);
+        @include effect-glass($border-radius: $badge-size);
+        background-size: $badge-size;
+    }
+
+}

@@ -1,0 +1,33 @@
+$social-spacing: 4px;
+@import "social/*.png";
+@include all-social-sprites(true);
+
+nav.social {
+    position: absolute;
+    bottom: 40px;
+    right: 15px;
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        display: inline-block;
+        @include transform(translateZ(0));
+        margin-right: $social-spacing;
+    }
+
+    a {
+        display: inline-block;
+        text-indent: -9999px;
+        @include opacity(.3);
+        @include transition(2s ease-in-out);
+        -webkit-backface-visibility: hidden;
+
+        &:hover {
+            @include opacity(1);
+        }
+    }
+}

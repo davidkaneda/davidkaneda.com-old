@@ -6,24 +6,23 @@ $background-color: #111;
 $bg-list: #000;
 $blue: #33A5F5;
 
-$freight-fs: freight-sans-pro, sans-serif;
-$skolar-fs: skolar, serif;
-
 @mixin color-skin($name, $color) {
 
-    .#{$name} & {
+    .#{$name} #content {
         nav {
             @include color-by-background($color, 15);
         }
         nav a {
-            @include color-by-background($color, 50);
+            @include color-by-background($color, 40);
 
             &:hover {
+                text-decoration: none;
                 @include text-shadow(0 0 2px rgba($blue, .5), 0 0 8px rgba(lighten($blue, 20), .3));
+                @include color-by-background($color, 60);
             }
 
-            &.current {
-                @include color-by-background($color, 50);            
+            &.active {
+                @include color-by-background($color, 80);            
             }
         }
 
@@ -33,26 +32,37 @@ $skolar-fs: skolar, serif;
         h3 {
             @include color-by-background($color, 40);
         }
-    }
 
-    a {
-        @include color-by-background($color);
+        a {
+            @include color-by-background($color, 30);
+
+            &:hover {
+                @include color-by-background($color, 50);
+            }
+        }
     }
 }
 
+@include color-skin('presentations', #111);
+@include color-skin('projects', #eee);
+@include color-skin('tumblogs', #2C4762);
+@include color-skin('home', $blue);
+@include color-skin('project-detail', #111);
+
 html, body {
     height: 100%;
-
     margin: 0;
     padding: 0;
 }
 
 body {
-    background: #000 url(../img/me-big.jpg) right center fixed no-repeat;
+    // background: #000 url(../img/me-big.jpg) right center fixed no-repeat;
+    background: #000;
     -moz-background-size: cover;
     background-size: cover;
     font-size: 15px;
-    font-family: $freight-fs;
+    font-family: gesta, Helvetica, Arial, sans-serif;
+    font-weight: 400;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     margin: 0;
@@ -70,12 +80,11 @@ a {
 
 h1 {
     margin-top: 30px;
-    font-weight: 200;
-    font-family: $skolar-fs;
+    font-weight: 300;
 }
 
 h3 {
-    font-weight: 900;
+    font-weight: 300;
     font-size: 15px;
 }
 
@@ -96,15 +105,15 @@ h3 {
         $background-color
     );
 
-    @include color-skin('presentations', #111);
-    @include color-skin('list', #eee);
-    @include color-skin('tumblr', #2C4762);
-
-    @include color-skin('home', $blue);
-    @include color-skin('project-detail', #111);
-
-    .presentations &, .list &, .tumblr & {
+    .presentations &, .projects &, .tumblogs & {
         width: 90%;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .projects & {
+        margin-left: 5%;
+        width: 95%;
     }
 
     .project-detail & {
@@ -117,7 +126,7 @@ h3 {
 
     // Prevents animating the first one...
     body:not(.firstrun) & {
-        @include transition(all 400ms ease-in-out);
+        @include transition(all 350ms ease-in-out);
     }
     > div {
         margin: 40px 40px 20px;
@@ -131,98 +140,13 @@ h3 {
     .home & > div {
         margin: 200px 40px 20px;
     }
-}
 
-#page-header {
-    margin: 0;
-    z-index: 20;
-    position: relative;
-    padding-top: 20px;
-    padding-left: 20px;
-
-    nav {
-        @include transition(all 100ms ease-in-out);
-        font-size: 15px;
-        text-transform: uppercase;
-        font-weight: 300;
-        letter-spacing: 1px;
-        position: absolute;
-        left: 90px;
-        top: 30px;
-
-        ul {
-            margin: 0;
-            padding: 0;
-            list-style-type: none;
-        }
-        li {
-            display: inline;
-            &:after {
-                content: '/';
-            }
-        }
-        a {
-            @include transition(all 100ms ease-in-out);
-            display: inline-block;
-            padding: 10px 7px;
-        }
+    p {
+        font-size: 1.7em;
+        line-height: 1.3em;
     }
 }
 
-#page-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    left: 0;
-}
-
-$social-spacing: 4px;
-@import "social/*.png";
-@include all-social-sprites(true);
-
-nav.social {
-    position: absolute;
-    bottom: 40px;
-    right: 0px;
-
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    li {
-        display: inline;
-        @include transform(translateZ(0));
-        margin-right: $social-spacing;
-    }
-
-    a {
-        display: inline-block;
-        text-indent: -9999px;
-        @include opacity(.5);
-        @include transition(.3s ease-in-out);
-        &:hover {
-            @include opacity(1);
-        }
-    }
-}
-
-$badge-size: 80px;
-
-.project {
-    width: 180px;
-    height: 140px;
-    margin: 10px;
-    text-align: center;
-
-    .badge {
-        display: block;
-        margin: 0 auto 4px;
-        @include bevel;
-        @include circle($badge-size);
-        @include effect-glass($border-radius: $badge-size);
-        background-size: $badge-size;
-    }
-
-}
+@import 'header';
+@import 'social';
+@import 'projects';

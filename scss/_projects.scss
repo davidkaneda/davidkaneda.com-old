@@ -1,0 +1,47 @@
+$badge-size: 80px;
+
+.project {
+    width: 300px;
+    height: 150px;
+    margin: 10px;
+    position: relative;
+    margin: 5px;
+    float: left;
+    overflow: hidden;
+
+    .badge {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 220px;
+        height: 220px;
+        display: block;
+        // @include circle($badge-size);
+        @include cutout;
+        background-size: $badge-size;
+    }
+
+    h2 {
+        width: 94%;
+        position: absolute;
+        left: 0;
+        background: rgba(#eee, .8);
+        bottom: -30px;
+        padding: 5px 3%;
+        margin: 0;
+        font-size: 12px;
+        font-weight: normal;
+        @include color-by-background(#eee, 100);
+        @include transition(300ms ease-in-out);
+    }
+    &:hover h2 {
+        bottom: 0px;
+    }
+    &:hover {
+        text-decoration: none;
+    }
+    background-color: $blue;
+
+}
