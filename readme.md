@@ -3,6 +3,8 @@ I decided it was finally time to make my own website. For years I have simply be
 ## Tools and frameworks being used:
 
 * HTML5 Boilerplate: http://html5boilerplate.com/
+* jQuery: http://www.jquery.com/
 * Spine: http://spinejs.com/
+* CoffeeScript: http://coffeescript.org/
 * Compass: http://compass-style.org/
 * Compass Recipes: https://github.com/senchalabs/compass-recipes
