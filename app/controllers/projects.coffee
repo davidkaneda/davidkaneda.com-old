@@ -1,6 +1,6 @@
 Spine = require('spine')
 Page = require('controllers/page')
-Detail = require('controllers/project_detail')
+ProjectDetail = require('controllers/project_detail')
 Project = require('models/project')
 $ = Spine.$
 Tmpl = require('spine/lib/tmpl')
@@ -19,18 +19,18 @@ class Projects extends Page
     @hasLoaded = new $.Deferred()
     Project.fetch()
 
+  # Render the thumbnails
   render: (items) =>
     @projects = Project.all()
     @hasLoaded.resolve()
     @append require('views/project')(@)
 
+  # Load a detail project
   loadRecord: (id) ->
-    record = Project.findByAttribute('stub', id)
-    
-    newdetail = new Detail(record);
-    
-    @detail.destroy if @detail
+    newdetail = new ProjectDetail( project: Project.findByAttribute('stub', id) )
+    @detail = newdetail;
 
-
+  removeDetail: ->
+    @detail.remove() if @detail
 
 module.exports = Projects

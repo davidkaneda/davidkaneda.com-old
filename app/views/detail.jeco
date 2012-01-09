@@ -1,0 +1,5 @@
+<div class="current">
+    <h2><%= @project.title %></h2>
+    <%- @project.description %>
+    <p><a href="/projects/" rel="internal">Return to projects</a></p>
+</div>

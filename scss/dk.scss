@@ -8,36 +8,38 @@ $blue: #33A5F5;
 
 @mixin color-skin($name, $color) {
 
+    $flat-color: opacify($color, 1);
+
     .#{$name} #content {
         nav {
-            @include color-by-background($color, 15);
+            @include color-by-background($flat-color, 15);
         }
         nav a {
-            @include color-by-background($color, 40);
+            @include color-by-background($flat-color, 40);
 
             &:hover {
                 text-decoration: none;
                 @include text-shadow(0 0 2px rgba($blue, .5), 0 0 8px rgba(lighten($blue, 20), .3));
-                @include color-by-background($color, 60);
+                @include color-by-background($flat-color, 60);
             }
 
             &.active {
-                @include color-by-background($color, 80);            
+                @include color-by-background($flat-color, 80);            
             }
         }
 
         background-color: $color;
-        @include color-by-background($color);
+        @include color-by-background($flat-color);
 
         h3 {
-            @include color-by-background($color, 40);
+            @include color-by-background($flat-color, 40);
         }
 
         a {
-            @include color-by-background($color, 30);
+            @include color-by-background($flat-color, 30);
 
             &:hover {
-                @include color-by-background($color, 50);
+                @include color-by-background($flat-color, 50);
             }
         }
     }
@@ -47,7 +49,10 @@ $blue: #33A5F5;
 @include color-skin('projects', #eee);
 @include color-skin('tumblogs', #2C4762);
 @include color-skin('home', $blue);
-@include color-skin('project-detail', #111);
+@include color-skin('project-detail', #222);
+@include color-skin('p-dyadcom', #c30);
+@include color-skin('p-sencha', #064E7B);
+@include color-skin('p-9bits', #182230);
 
 html, body {
     height: 100%;
@@ -68,6 +73,18 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100%;
+
+    &.loading-frame {
+        background-image: url(../img/loading.gif);
+        background-size: auto;
+        background-position: 15px 20px;
+        background-repeat: no-repeat;
+        overflow: hidden;
+    }
+}
+
+.smooth {
+    -webkit-font-smoothing: subpixel-antialiased;
 }
 
 a {
@@ -91,6 +108,7 @@ h3 {
 #content {
     top: 0;
     left: 0;
+    z-index: 10;
     position: relative; /* needed for footer positioning*/    
     height: auto !important; /* real browsers */
     height: 100%; /* IE6: treaded as min-height*/
@@ -117,11 +135,32 @@ h3 {
     }
 
     .project-detail & {
+
+
         nav {
-            opacity: 0;
+            @include opacity(0);
+            
+            a {
+                padding: 1px 0;
+            }
+        }
+        &:hover nav {
+            @include opacity(1);
         }
 
-        width: 20%;
+        @extend .smooth;
+
+        p {
+            font-size: 14px;
+            line-height: 24px;
+        }
+
+        > div {
+            margin: 40px 15px 20px;
+        }
+        width: 25%;
+        margin-left: 75%;
+        margin-right: 0;
     }
 
     // Prevents animating the first one...
@@ -129,8 +168,10 @@ h3 {
         @include transition(all 350ms ease-in-out);
     }
     > div {
-        margin: 40px 40px 20px;
+        margin: 40px 20px 0 95px;
+        padding-bottom: 40px;
         display: none;
+        overflow: hidden; // Clear floats
 
         &.current {
             display: block;
@@ -144,6 +185,26 @@ h3 {
     p {
         font-size: 1.7em;
         line-height: 1.3em;
+    }
+}
+
+.bigiframe {
+    width: 75%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include opacity(0);
+    @include translate3d(0,0,0);
+    @include transition(all 1s ease-in-out);
+
+    -webkit-filter: blur(3px);
+
+    &.loaded {
+        -webkit-filter: blur(0);
+        @include opacity(1);
+        @include translate3d(0,0,0);
+
     }
 }
 

@@ -28,19 +28,19 @@
   <!-- All JavaScript at the bottom, except this Modernizr build incl. Respond.js
        Respond is a polyfill for min/max-width media queries. Modernizr enables HTML5 elements & feature detects; 
        for optimal performance, create your own custom Modernizr build: www.modernizr.com/download/ -->
+  <script type="text/javascript" src="http://use.typekit.com/aox1bty.js"></script>
 
   <script src="/js/libs/modernizr-2.0.6.min.js"></script>
-  <script type="text/javascript" src="http://use.typekit.com/aox1bty.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 
-<body class="firstrun">
+<body>
   <div role="main" id="content">
       <header id="page-header">
         <a href="/"><img src="/img/head.png"></a>
         <nav>
           <ul>
-            <li><a id="nav-home" href="/">David Kaneda</a></li>
+            <li><a id="nav-home" href="/">DK</a></li>
             <li><a id="nav-projects" href="/projects/">Projects</a></li>
             <li><a id="nav-presentations" href="/presentations/">Presentations</a></li>
           </ul>
@@ -48,9 +48,7 @@
       </header>
       <div id="home">
         <h1>I design and build simple, yet rich, <a rel="internal" href="/projects/">experiences</a> using web technology.</h1>
-
-        <h3>David Kaneda, Creative Web Technologist</h3>
-        <h4>Let&#8217;s chat: <a href="#">hi@davidkaneda.com</a></h4>
+        <p><a href="https://twitter.com/davidkaneda" class="twitter-follow-button" data-width="150">Follow @davidkaneda</a></p>
       </div>
       <div id="projects">
         <h1>Projects</h1>
@@ -61,11 +59,9 @@
       </div>
       <nav class="social">
         <ul>
-          <li><a href="https://twitter.com/davidkaneda" class="twitter-follow-button" data-width="150">Follow @davidkaneda</a></li>
-
           <li><a class="social-twitter" href="https://twitter.com/davidkaneda">Twitter</a></li>
           <li><a class="social-facebook" href="https://facebook.com/dkaneda">Facebook</a></li>
-          <li><a class="social-tumblr" href="https://9-bits.com">Tumblr</a></li>
+          <li><a class="social-tumblr" href="http://9-bits.com">Tumblr</a></li>
           <li><a class="social-linkedin" href="http://www.linkedin.com/in/dkaneda">LinkedIn</a></li>
           <li><a class="social-github" href="https://github.com/davidkaneda">Github</a></li>
           <li><a class="social-googleplus" href="https://plus.google.com/100438603620914963861">Google Plus</a></li>
@@ -82,7 +78,8 @@
   <!-- scripts concatenated and minified via build script -->
   <script defer src="/js/plugins.js"></script>
   <script src="/js/application.js"></script>
-  
+  <!-- end scripts -->
+
   <script type="text/javascript" charset="utf-8">
     var exports = this;
     $(function(){
@@ -90,8 +87,6 @@
       exports.app = new App({el: $("body")});      
     });
   </script>
-  
-  <!-- end scripts -->
 
   <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
        mathiasbynens.be/notes/async-analytics-snippet -->

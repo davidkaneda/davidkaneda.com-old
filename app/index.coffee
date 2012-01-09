@@ -43,6 +43,8 @@ class App extends Page
     @switchClass 'home'
 
   switchClass: (name) ->
+    if @el.hasClass('project-detail') then @pc.removeDetail()
+
     # Switch the body class
     @el.removeClass @currentClass if @currentClass
     @el.addClass name

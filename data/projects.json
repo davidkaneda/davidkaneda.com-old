@@ -1,35 +1,37 @@
 [{
   "name": "Sencha",
   "stub": "sencha",
+  "featured": true,
+  "iframe": "http://www.sencha.com",
   "avatar": "https://twimg0-a.akamaihd.net/profile_images/1233097698/sencha-blue.png",
-  "description": "<h3>Sencha Project description.</h3><p>Body</p><ul><li>List item 1</li><li>List item 2</li></ul>"
+  "description": "<p>In late 2009, I became creative director at <a href=\"http://www.sencha.com\">Sencha</a> (Ext JS at the time) and began to help the recently funded company shape it's global look and feel. This included coming up with the new name, logo, and redesigning a mountain of corporate material from print collateral to website to framework themes.</p>"
 }, {
   "name": "jQTouch",
   "stub": "jqtouch",
+  "iframe": "http://www.jqtouch.com",
   "avatar": "https://twimg0-a.akamaihd.net/profile_images/388978113/jqt.png",
-  "description": "<h3>Sencha Project description.</h3><p>Body</p><ul><li>List item 1</li><li>List item 2</li></ul>"
+  "description": "<p>I created jQTouch a few years ago in an effort to create iPhone apps though mobile Safari. Since then, it has grown to become the <a href=\"http://blog.jqtouch.com/post/12797095394/number-one\">most popular mobile JavaScript framework</a> in use, and now also includes Android support. I just released a new beta (beta 4) which includes Zepto support and brings the framework under 30kb total.</p>"
 }, {
   "name": "Dyad Communications",
   "stub": "dyadcom",
+  "iframe": "http://www.dyadcom.com/",
   "avatar": "https://twimg0-a.akamaihd.net/profile_images/58136003/d.gif",
-  "description": "<h3>Sencha Project description.</h3><p>Body</p><ul><li>List item 1</li><li>List item 2</li></ul>"
-
-}, {
-  "name": "jQTouch",
-  "stub": "jqtouch",
-  "avatar": "https://twimg0-a.akamaihd.net/profile_images/388978113/jqt.png",
-  "description": "<h3>Sencha Project description.</h3><p>Body</p><ul><li>List item 1</li><li>List item 2</li></ul>"
+  "description": "<p>I worked for 3 years at Dyad Communications, where I eventually became an associate partner, and directed the company&#8217;s digital works."
 }, {
   "name": "Compass Recipes",
   "stub": "recipes",
   "avatar": "Avatar!",
+  "description": "<p>After working on Sencha Touch and various other <a href=\"/projects/sencha/\" rel=\"internal\">Sencha projects</a> like Animator and Ext JS, I started a default styling library for apps and UI. After looking around, I found a similar project called Compass Recipes and began contributing my stuff there.</p>",
   "new": true
 }, {
   "name": "9-bits",
   "stub": "9bits",
+  "iframe": "http://9-bits.com",
   "avatar": ""
 }, {
   "name": "WebKitBits",
   "stub": "webkitbits",
+  "iframe": "http://www.webkitbits.com/",
+  "description": "<p>WebKitBits is a tumblog I maintain about WebKit: the browser engine built into Safari, Google Chrome, iOS, Android, and BlackBerry.</p>",
   "avatar": ""
 }]

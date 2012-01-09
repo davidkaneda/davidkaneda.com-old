@@ -9,6 +9,7 @@
         @include transition(all 100ms ease-in-out);
         font-size: 15px;
         text-transform: uppercase;
+        @extend .smooth;
         font-weight: 300;
         letter-spacing: 1px;
         position: absolute;
@@ -31,5 +32,15 @@
             display: inline-block;
             padding: 10px 7px;
         }
+    }
+}
+
+.project-detail #page-header nav {
+    top: 20px;
+    li:before {
+        content: '';
+    }
+    li {
+        display: block;
     }
 }
