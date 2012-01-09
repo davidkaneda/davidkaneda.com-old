@@ -3,23 +3,24 @@
   "stub": "sencha",
   "featured": true,
   "iframe": "http://www.sencha.com",
-  "avatar": "https://twimg0-a.akamaihd.net/profile_images/1233097698/sencha-blue.png",
-  "description": "<p>In late 2009, I became creative director at <a href=\"http://www.sencha.com\">Sencha</a> (Ext JS at the time) and began to help the recently funded company shape it's global look and feel. This included coming up with the new name, logo, and redesigning a mountain of corporate material from print collateral to website to framework themes.</p>"
+  "avatar": "/img/sencha.png",
+  "description": "<p>I am currently the creative director at <a href=\"http://www.sencha.com\">Sencha</a> where I help shape the company&#8217;s look and feel. This has included renaming/rebranding the company, designing various visual campaigns in both print and web. I also assist on the engineering team, in both designing and building the user interfaces to our products.</p>"
 }, {
   "name": "jQTouch",
   "stub": "jqtouch",
   "iframe": "http://www.jqtouch.com",
-  "avatar": "https://twimg0-a.akamaihd.net/profile_images/388978113/jqt.png",
+  "avatar": "/img/jqtouch.png",
   "description": "<p>I created jQTouch a few years ago in an effort to create iPhone apps though mobile Safari. Since then, it has grown to become the <a href=\"http://blog.jqtouch.com/post/12797095394/number-one\">most popular mobile JavaScript framework</a> in use, and now also includes Android support. I just released a new beta (beta 4) which includes Zepto support and brings the framework under 30kb total.</p>"
 }, {
   "name": "Dyad Communications",
   "stub": "dyadcom",
   "iframe": "http://www.dyadcom.com/",
-  "avatar": "https://twimg0-a.akamaihd.net/profile_images/58136003/d.gif",
-  "description": "<p>I worked for 3 years at Dyad Communications, where I eventually became an associate partner, and directed the company&#8217;s digital works."
+  "avatar": "/img/dyad.png",
+  "description": "<p>I worked for almost 4 years at Dyad Communications, where I eventually became an associate partner, and directed the company&#8217;s web projects.</p><p>I created sites in both Actionscript 3 and HTML/CSS while at Dyad, mostly working with classical architects and universities."
 }, {
   "name": "Compass Recipes",
   "stub": "recipes",
+  "iframe": "http://github.com/senchalabs/compass-recipes",
   "avatar": "Avatar!",
   "description": "<p>After working on Sencha Touch and various other <a href=\"/projects/sencha/\" rel=\"internal\">Sencha projects</a> like Animator and Ext JS, I started a default styling library for apps and UI. After looking around, I found a similar project called Compass Recipes and began contributing my stuff there.</p>",
   "new": true
@@ -27,7 +28,7 @@
   "name": "9-bits",
   "stub": "9bits",
   "iframe": "http://9-bits.com",
-  "avatar": ""
+  "avatar": "/img/9bits.png"
 }, {
   "name": "WebKitBits",
   "stub": "webkitbits",

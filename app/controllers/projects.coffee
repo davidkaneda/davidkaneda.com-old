@@ -10,7 +10,7 @@ class Projects extends Page
 
   constructor: ->
     # Set the element.
-    @el = $('#projects')
+    @el = $('#work')
     super
 
     # Asynchronously load the projects and create thumbs

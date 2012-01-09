@@ -1,7 +1,7 @@
 <% if @projects.length: %>
   <% for project in @projects: %>
-    <a rel="internal" href="/projects/<%= project.stub %>" class="project<%- ' featured' if project.featured %>">
-    <img src="<%= project.avatar %>" />
+    <a rel="internal" href="/work/<%= project.stub %>" class="tnail <%= project.stub %> project<%- ' featured' if project.featured %>">
+    <img src="<%= project.avatar %>" class="coverphoto" />
     <h2><%= project.name %></h2>
     </a>
   <% end %>

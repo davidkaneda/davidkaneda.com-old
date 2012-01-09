@@ -7,21 +7,22 @@ class ProjectDetail extends Page
 
   constructor: (config) ->
     @project = config.project
-    @el = require('views/detail')(@)
-    $('#content').append(@el)
+    @el = require('views/detail')(@).appendTo '#content'
     @meta_title = @project.name
     $('body').addClass 'p-' + @project.stub
-    
     super
-    setTimeout @loadiframe, 100 if @project.iframe
+    # Load iframe in a callback for better animation
+    setTimeout @loadiframe, 200 if @project.iframe
 
   remove: ->
     @el.remove()
+    delete @el
     if @iframe then @iframe.remove()
+    delete @iframe
     $('body').removeClass 'loading-frame p-' + @project.stub
 
   loadiframe: =>
-    @iframe = $("<iframe frameborder=\"0\" border=\"0\" cellspacing=\"0\" class=\"bigiframe\" />").attr('src', @project.iframe).load(@onFrameLoad).appendTo('body').load(@onFrameLoad) if @project.iframe
+    @iframe = $("<iframe frameborder=\"0\" border=\"0\" cellspacing=\"0\" class=\"bigiframe\" />").attr('src', @project.iframe).load(@onFrameLoad).appendTo('body').load(@onFrameLoad)
     $('body').addClass 'loading-frame'
   
   onFrameLoad: =>

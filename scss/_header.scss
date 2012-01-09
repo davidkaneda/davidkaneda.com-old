@@ -6,7 +6,7 @@
     padding-left: 20px;
 
     nav {
-        @include transition(all 100ms ease-in-out);
+        @include transition(opacity 400ms ease-in-out);
         font-size: 15px;
         text-transform: uppercase;
         @extend .smooth;
@@ -37,10 +37,10 @@
 
 .project-detail #page-header nav {
     top: 20px;
-    li:before {
-        content: '';
-    }
     li {
         display: block;
+        &:before {
+            content: '';
+        }
     }
 }

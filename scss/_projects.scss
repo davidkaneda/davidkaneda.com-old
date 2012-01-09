@@ -20,16 +20,15 @@ $badge-size: 80px;
         width: 94%;
         position: absolute;
         left: 0;
-        background: rgba(#eee, .8);
-        bottom: -30px;
-        padding: 5px 3%;
+        background: rgba(#eee, .5);
+        bottom: -38px;
+        padding: 10px 5%;
         margin: 0;
-        font-size: 13px;
+        font-size: 18px;
         line-height: 1em;
-        text-transform: uppercase;
-        font-weight: 900;
+        // text-transform: uppercase;
+        font-weight: 400;
         @include color-by-background(#eee, 100);
-        color: darken($blue, 30);
         @include transition(200ms ease-in-out);
     }
     &:hover h2 {
@@ -41,5 +40,20 @@ $badge-size: 80px;
 
     .current & {
         @include opacity(1);
+    }
+}
+
+.coverphoto {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include transform-origin(0, 0);
+    @include transform(translate3d(0,0,0) scale(.95));
+    @include transition;
+    -webkit-filter: blur(1px);
+
+    .project:hover & {;
+        -webkit-filter: blur(0);
+        @include transform(translate3d(-10px, 0 ,0) scale(1));
     }
 }

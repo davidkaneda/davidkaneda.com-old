@@ -2,9 +2,8 @@ require('lib/setup')
 
 Spine = require('spine')
 Page = require('controllers/page');
-
-Projects = require('controllers/projects');
 Project = require('models/project')
+Projects = require('controllers/projects');
 
 class App extends Page
   events:
@@ -13,14 +12,11 @@ class App extends Page
   constructor: ->
     super
     @routes
-      "/projects/:id": @projects
+      "/work/:id": @work
       "/presentations/": @presentations
       "/": @home
-      "*unknown": -> @navigate '/', true
 
     @$('.social a').attr('target', '_blank');
-
-
     Spine.Route.setup(history: true)
 
     # Added after current function scope
@@ -32,18 +28,17 @@ class App extends Page
   presentations: ->
     @switchClass 'presentations'
 
-  projects: (params) ->
-    @pc = new Projects() unless @pc
-    @switchClass if params.id then 'project-detail' else 'projects'
-
-    if params.id then @pc.hasLoaded.done => @pc.loadRecord params.id
+  work: (params) ->
+    @projects = new Projects() unless @projects
+    @switchClass if params.id then 'project-detail' else 'work'
+    if params.id then @projects.hasLoaded.done => @projects.loadRecord params.id
   
   home: ->
     @setTitle('David Kaneda');
     @switchClass 'home'
 
   switchClass: (name) ->
-    if @el.hasClass('project-detail') then @pc.removeDetail()
+    if @el.hasClass('project-detail') then @projects.removeDetail()
 
     # Switch the body class
     @el.removeClass @currentClass if @currentClass
@@ -61,7 +56,6 @@ class App extends Page
 
   navClick: (e) =>
     href = $(e.currentTarget).addClass('active').attr('href')
-    @log href
     @navigate href, true
     false
 
