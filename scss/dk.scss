@@ -203,13 +203,13 @@ h3 {
     @include opacity(0);
     @include translate3d(0,0,0);
     @include transition(all 1s ease-in-out);
+
+    // FIRST!!!
     -webkit-filter: blur(5px);
 
     &.loaded {
         -webkit-filter: blur(0);
         @include opacity(1);
-        @include translate3d(0,0,0);
-
     }
 }
 
