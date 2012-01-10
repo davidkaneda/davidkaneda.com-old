@@ -1,0 +1,61 @@
+@mixin color-skin($name, $color) {
+
+    $flat-color: opacify($color, 1);
+
+    .#{$name} #content {
+        nav {
+            @include color-by-background($flat-color, 15);
+        }
+        nav a {
+            @include color-by-background($flat-color, 40);
+
+            &:hover,  {
+                text-decoration: none;
+                @include text-shadow(0 0 2px rgba($blue, .5), 0 0 8px rgba(lighten($blue, 20), .3));
+                @include color-by-background($flat-color, 60);
+            }
+
+            &.active, &nav-#{$name} {
+                @include color-by-background($flat-color, 80);            
+            }
+        }
+
+        background-color: $color;
+        @include color-by-background($flat-color);
+
+        h3 {
+            @include color-by-background($flat-color, 40);
+        }
+
+        a {
+            @include color-by-background($flat-color, 30);
+
+            &:hover {
+                @include color-by-background($flat-color, 50);
+            }
+        }
+        div a {
+            @include color-by-background($flat-color, 70);
+            background-color: rgba(color-offset($flat-color, 50%), .15);
+
+            &:hover {
+                background-color: rgba(color-offset($flat-color, 50%), .4);
+                @include color-by-background($flat-color, 90);
+            }
+        }
+    }
+
+    .project-detail.#{$name} #content #nav-work {
+        @include color-by-background($flat-color, 80);
+    }
+}
+
+@include color-skin('presentations', #111);
+@include color-skin('work', #eee);
+@include color-skin('tumblogs', #2C4762);
+@include color-skin('home', $blue);
+@include color-skin('project-detail', #222);
+@include color-skin('p-dyadcom', #c30);
+@include color-skin('p-sencha', #064E7B);
+@include color-skin('p-9bits', #182230);
+@include color-skin('p-webkitbits', #0A2530);

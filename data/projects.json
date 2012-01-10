@@ -32,7 +32,7 @@
 }, {
   "name": "WebKitBits",
   "stub": "webkitbits",
+  "avatar": "/img/wkb.png",
   "iframe": "http://www.webkitbits.com/",
-  "description": "<p>WebKitBits is a tumblog I maintain about WebKit: the browser engine built into Safari, Google Chrome, iOS, Android, and BlackBerry.</p>",
-  "avatar": ""
+  "description": "<p>WebKitBits is a tumblog I maintain about WebKit: the browser engine built into Safari, Google Chrome, iOS, Android, and BlackBerry.</p>"
 }]

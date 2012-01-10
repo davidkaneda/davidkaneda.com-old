@@ -6,7 +6,7 @@ nav.social {
     position: absolute;
     bottom: 40px;
     right: 15px;
-    @include transition;
+    @include transition(all 150ms linear);
 
     ul {
         list-style-type: none;
@@ -23,14 +23,16 @@ nav.social {
     a {
         display: inline-block;
         text-indent: -9999px;
-        @include opacity(.3);
+        @include opacity(.1);
         @include transition(400ms ease-in-out);
         @include transform(translate3d(0,0,0));
 
         -webkit-backface-visibility: hidden;
-
+        .home & {
+            @include opacity(.2);
+        }
         &:hover {
-            @include opacity(1);
+            @include opacity(.6);
         }
     }
 }

@@ -28,10 +28,18 @@
             }
         }
         a {
-            @include transition(all 100ms ease-in-out);
             display: inline-block;
             padding: 10px 7px;
         }
+    }
+}
+
+#nav-about {
+    @include opacity(0);
+    @include transition(100ms);
+
+    nav:hover & {
+        @include opacity(.6);
     }
 }
 

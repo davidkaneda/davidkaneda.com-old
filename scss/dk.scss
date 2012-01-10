@@ -6,59 +6,6 @@ $background-color: #111;
 $bg-list: #000;
 $blue: #33A5F5;
 
-@mixin color-skin($name, $color) {
-
-    $flat-color: opacify($color, 1);
-
-    .#{$name} #content {
-        nav {
-            @include color-by-background($flat-color, 15);
-        }
-        nav a {
-            @include color-by-background($flat-color, 40);
-
-            &:hover,  {
-                text-decoration: none;
-                @include text-shadow(0 0 2px rgba($blue, .5), 0 0 8px rgba(lighten($blue, 20), .3));
-                @include color-by-background($flat-color, 60);
-            }
-
-            &.active, &nav-#{$name} {
-                @include color-by-background($flat-color, 80);            
-            }
-        }
-
-        background-color: $color;
-        @include color-by-background($flat-color);
-
-        h3 {
-            @include color-by-background($flat-color, 40);
-        }
-
-        a {
-            @include color-by-background($flat-color, 30);
-
-            &:hover {
-                @include color-by-background($flat-color, 50);
-            }
-        }
-    }
-
-    .project-detail.#{$name} #content #nav-work {
-        @include color-by-background($flat-color, 80);
-    }
-}
-
-@include color-skin('presentations', #111);
-@include color-skin('work', #eee);
-@include color-skin('tumblogs', #2C4762);
-@include color-skin('home', $blue);
-@include color-skin('project-detail', #222);
-@include color-skin('p-dyadcom', #c30);
-@include color-skin('p-sencha', #064E7B);
-@include color-skin('p-9bits', #182230);
-@include color-skin('p-webkitbits', #0A2530);
-
 html, body {
     height: 100%;
     margin: 0;
@@ -94,10 +41,7 @@ body {
 
 a {
     text-decoration: none;
-
-    &:hover {
-        text-decoration: underline;
-    }
+    @include transition(all 200ms linear);
 }
 
 h1 {
@@ -105,9 +49,9 @@ h1 {
     font-weight: 300;
 }
 
-h3 {
+h2 {
     font-weight: 300;
-    font-size: 15px;
+    font-size: 18px;
 }
 
 #content {
@@ -124,7 +68,7 @@ h3 {
 
     margin-left: 5%;
     @include background(
-        background_noise($size: 120, $monochrome: true, $opacity: .05, $intensity: 1),
+        background_noise($size: 120, $monochrome: true, $opacity: .08, $intensity: .25),
         $background-color
     );
 
@@ -132,6 +76,11 @@ h3 {
         width: 90%;
         margin-left: 0;
         width: 100%;
+    }
+
+    .presentations & {
+        width: 45%;
+        padding-right: 35%;
     }
 
     .work & {
@@ -174,7 +123,7 @@ h3 {
     }
 
     > div {
-        margin: 20px 20px 0 95px;
+        margin: 20px 95px;
         padding-bottom: 40px;
         display: none;
         overflow: hidden; // Clear floats
@@ -182,6 +131,10 @@ h3 {
         &.current {
             display: block;
         }
+    }
+
+    p a, h1 a, h2 a, h3 a {
+        padding: 0 4px;
     }
 
     .home & > div {
@@ -224,6 +177,8 @@ h3 {
     @include opacity(0);
     @include scale(.85);
     z-index: 1;
+
+    pointer-events: none;
 }
 
 .home #content #home-photo {
@@ -231,6 +186,7 @@ h3 {
     @include scale(1);
 }
 
+@import 'colors';
 @import 'header';
 @import 'social';
 @import 'projects';

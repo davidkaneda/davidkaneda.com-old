@@ -20,7 +20,9 @@ $badge-size: 80px;
         width: 94%;
         position: absolute;
         left: 0;
-        background: rgba(#eee, .5);
+        // background: rgba(#eee, .5);
+        @include background-gradient(rgba(#ddd, .8));
+
         bottom: -38px;
         padding: 10px 5%;
         margin: 0;
@@ -29,7 +31,7 @@ $badge-size: 80px;
         // text-transform: uppercase;
         font-weight: 400;
         @include color-by-background(#eee, 100);
-        @include transition(200ms ease-in-out);
+        @include transition(200ms linear);
     }
     &:hover h2 {
         bottom: 0px;
@@ -48,12 +50,15 @@ $badge-size: 80px;
     top: 0;
     left: 0;
     @include transform-origin(0, 0);
-    @include transform(translate3d(0,0,0) scale(.95));
-    @include transition;
+    @include transition(all 250ms ease-in-out);
     -webkit-filter: blur(1px);
+    // @include scale(.98);
+    @include transform(scale(.97) translateX(0));
 
-    .project:hover & {;
+    .project:hover & {
+        @include transform(scale(1) translateX(-5px));
         -webkit-filter: blur(0);
-        @include transform(translate3d(-10px, 0 ,0) scale(1));
+        @include opacity(1);
+        // @include scale(1);
     }
 }
