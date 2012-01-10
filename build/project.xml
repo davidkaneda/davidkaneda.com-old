@@ -2,8 +2,7 @@
 <!DOCTYPE project>
 <project name="Project Build" default="dkbuild" basedir="../">
 	
-    <!-- Use this file to define any custom build targets (for example, automatically deploying via FTP). -->
-    <!-- Removes the CSS stuff -->
+    <!-- Modified build - removed -css, added -copy-css. -->
     <target name="dkbuild"
             depends="-intro,
                      -usemin,
@@ -15,5 +14,15 @@
                      -htmlcompress,
                      -imagespng,
                      -imagesjpg,
-                     -copy"/>
+                     -copy,
+                     -copy-css"/>
+
+    <!-- Modified  -->
+    <target name="-copy-css">
+        <copy todir="${dir.publish}/${dir.css}/">
+          <fileset dir="./${dir.css}/">
+              <include name="**/*.css"/>
+          </fileset>
+        </copy>
+    </target>
 </project>

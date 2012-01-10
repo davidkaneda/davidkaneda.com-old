@@ -15,7 +15,7 @@ class App extends Page
       "/work/:id": @work
       "/presentations/": @presentations
       "/hi": @home
-      "*any": -> @home
+      "*any": -> @navigate '/hi'
 
     @$('.social a').attr('target', '_blank')
     Spine.Route.setup(history: true)
@@ -38,7 +38,6 @@ class App extends Page
   home: ->
     @setTitle 'David Kaneda'
     @switchClass 'home'
-    @navigate '/hi'
 
   switchClass: (name) ->
     if @el.hasClass('project-detail') then @projects.removeDetail()
