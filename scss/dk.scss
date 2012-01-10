@@ -138,7 +138,7 @@ h2 {
     }
 
     .home & > div {
-        margin: 140px 40px 20px;
+        margin: 40px 40px 20px;
     }
 
     p {
@@ -178,6 +178,9 @@ h2 {
     @include scale(.85);
     z-index: 1;
 
+    .home & {
+        pointer-events: all;
+    }
     pointer-events: none;
 }
 

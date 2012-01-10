@@ -11,8 +11,11 @@ class ProjectDetail extends Page
     @meta_title = @project.name
     $('body').addClass 'p-' + @project.stub
     super
+    
+    _gaq.push ['_trackPageview']
     # Load iframe in a callback for better animation
     setTimeout @loadiframe, 200 if @project.iframe
+
 
   remove: ->
     @el.remove()

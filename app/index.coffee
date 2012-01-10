@@ -15,7 +15,7 @@ class App extends Page
       "/work/:id": @work
       "/presentations/": @presentations
       "/hi": @home
-      "*any": -> @navigate '/hi'
+      "*any": -> @navigate '/hi', true
 
     @$('.social a').attr('target', '_blank')
     Spine.Route.setup(history: true)
@@ -40,6 +40,7 @@ class App extends Page
     @switchClass 'home'
 
   switchClass: (name) ->
+    _gaq.push ['_trackPageview']
     if @el.hasClass('project-detail') then @projects.removeDetail()
 
     # Switch the body class
