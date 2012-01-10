@@ -14,9 +14,10 @@ class App extends Page
     @routes
       "/work/:id": @work
       "/presentations/": @presentations
-      "/": @home
+      "/hi": @home
+      "*any": -> @home
 
-    @$('.social a').attr('target', '_blank');
+    @$('.social a').attr('target', '_blank')
     Spine.Route.setup(history: true)
 
     # Added after current function scope
@@ -31,11 +32,13 @@ class App extends Page
   work: (params) ->
     @projects = new Projects() unless @projects
     @switchClass if params.id then 'project-detail' else 'work'
+
     if params.id then @projects.hasLoaded.done => @projects.loadRecord params.id
   
   home: ->
-    @setTitle('David Kaneda');
+    @setTitle 'David Kaneda'
     @switchClass 'home'
+    @navigate '/hi'
 
   switchClass: (name) ->
     if @el.hasClass('project-detail') then @projects.removeDetail()
