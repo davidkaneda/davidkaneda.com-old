@@ -19,8 +19,8 @@ class ProjectDetail extends Page
 
   remove: ->
     @el.remove()
-    delete @el
     if @iframe then @iframe.remove()
+    delete @el
     delete @iframe
     $('body').removeClass 'loading-frame p-' + @project.stub
 

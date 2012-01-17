@@ -67,6 +67,46 @@ h2 {
     width: 45%;
 
     margin-left: 5%;
+
+    $flat-color: #000;
+
+    nav {
+        @include color-by-background($flat-color, 15);
+    }
+    nav a {
+        @include color-by-background($flat-color, 40);
+
+        &:hover {
+            text-decoration: none;
+            @include text-shadow(0 0 2px rgba($blue, .5), 0 0 8px rgba(lighten($blue, 20), .3));
+            @include color-by-background($flat-color, 60);
+        }
+    }
+
+    background-color: $flat-color;
+    @include color-by-background($flat-color);
+
+    h3 {
+        @include color-by-background($flat-color, 40);
+    }
+
+    a {
+        @include color-by-background($flat-color, 30);
+
+        &:hover {
+            @include color-by-background($flat-color, 50);
+        }
+    }
+    div a {
+        @include color-by-background($flat-color, 70);
+        background-color: rgba(color-offset($flat-color, 50%), .15);
+
+        &:hover {
+            background-color: rgba(color-offset($flat-color, 50%), .4);
+            @include color-by-background($flat-color, 90);
+        }
+    }
+
     @include background(
         background_noise($size: 120, $monochrome: true, $opacity: .08, $intensity: .25),
         $background-color
@@ -79,6 +119,7 @@ h2 {
     }
 
     .presentations & {
+        overflow: hidden;
         width: 45%;
         padding-right: 35%;
     }
@@ -134,6 +175,7 @@ h2 {
     }
 
     p a, h1 a, h2 a, h3 a {
+        @include border-radius(4px);
         padding: 0 4px;
     }
 
@@ -187,6 +229,12 @@ h2 {
 .home #content #home-photo {
     @include opacity(1);
     @include scale(1);
+}
+
+.preso-banner {
+    position: absolute;
+    top: 20%;
+    left: 60%;
 }
 
 @import 'colors';

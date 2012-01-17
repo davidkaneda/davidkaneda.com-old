@@ -3,25 +3,27 @@
     $flat-color: opacify($color, 1);
 
     .#{$name} #content {
-        nav {
-            @include color-by-background($flat-color, 15);
-        }
-        nav a {
-            @include color-by-background($flat-color, 40);
 
-            &:hover,  {
-                text-decoration: none;
-                @include text-shadow(0 0 2px rgba($blue, .5), 0 0 8px rgba(lighten($blue, 20), .3));
-                @include color-by-background($flat-color, 60);
-            }
-
-            &.active, &nav-#{$name} {
-                @include color-by-background($flat-color, 80);            
-            }
-        }
 
         background-color: $color;
         @include color-by-background($flat-color);
+
+        nav {
+            @include color-by-background($flat-color, 15);
+
+            a {
+                @include color-by-background($flat-color, 40);
+
+                &:hover,  {
+                    @include text-shadow(0 0 2px rgba($blue, .5), 0 0 8px rgba(lighten($blue, 20), .3));
+                    @include color-by-background($flat-color, 60);
+                }
+
+                &.active, &nav-#{$name} {
+                    @include color-by-background($flat-color, 80);            
+                }
+            }
+        }
 
         h3 {
             @include color-by-background($flat-color, 40);
@@ -34,6 +36,7 @@
                 @include color-by-background($flat-color, 50);
             }
         }
+        
         div a {
             @include color-by-background($flat-color, 70);
             background-color: rgba(color-offset($flat-color, 50%), .15);

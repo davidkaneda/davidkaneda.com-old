@@ -42,7 +42,7 @@ class App extends Page
   switchClass: (name) ->
     _gaq.push ['_trackPageview']
     if @el.hasClass('project-detail') then @projects.removeDetail()
-
+    
     # Switch the body class
     @el.removeClass @currentClass if @currentClass
     @el.addClass name
