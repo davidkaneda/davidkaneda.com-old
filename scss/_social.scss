@@ -6,13 +6,12 @@ nav.social {
     position: absolute;
     bottom: 40px;
     right: 24px;
-    @include transition(all 120ms linear);
-    @include transform-origin(right, bottom);
+    @include transition(all 500ms linear);
 
-    @include scale(.9);
+    @include opacity(.6);
 
     &:hover {
-        @include scale(1);
+        @include opacity(1);
     }
 
     ul {
@@ -36,10 +35,10 @@ nav.social {
 
         -webkit-backface-visibility: hidden;
         .home & {
-            @include opacity(.2);
+            @include opacity(.5);
         }
         &:hover {
-            @include opacity(.6);
+            @include opacity(.9);
         }
     }
 }
