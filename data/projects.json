@@ -16,23 +16,18 @@
   "stub": "dyadcom",
   "iframe": "http://www.dyadcom.com/",
   "avatar": "/img/dyad.png",
-  "description": "<p>I worked for almost 4 years at Dyad Communications, where I eventually became an associate partner, and directed the company&#8217;s web projects.</p><p>I created sites in both Actionscript 3 and HTML/CSS while at Dyad, mostly working with classical architects and universities."
-}, {
-  "name": "Compass Recipes",
-  "stub": "recipes",
-  "iframe": "http://github.com/senchalabs/compass-recipes",
-  "avatar": "Avatar!",
-  "description": "<p>After working on Sencha Touch and various other <a href=\"/projects/sencha/\" rel=\"internal\">Sencha projects</a> like Animator and Ext JS, I started a default styling library for apps and UI. After looking around, I found a similar project called Compass Recipes and began contributing my stuff there.</p>",
-  "new": true
+  "description": "<p>I worked for almost 4 years at Dyad Communications, where I eventually became an associate partner, and directed the company&#8217;s web projects.</p><p>I created sites in both Actionscript 3 and HTML/CSS while at Dyad, mostly working with classical architects and universities.</p>"
 }, {
   "name": "9-bits",
   "stub": "9bits",
   "iframe": "http://9-bits.com",
-  "avatar": "/img/9bits.png"
+  "avatar": "/img/9bits.png",
+  "description": "<p>9-bits has been my personal Tumblr blog for several years, where I post the interesting design and technology related things I find.</p>"
+
 }, {
   "name": "WebKitBits",
   "stub": "webkitbits",
   "avatar": "/img/wkb.png",
   "iframe": "http://www.webkitbits.com/",
-  "description": "<p>WebKitBits is a tumblog I maintain about WebKit: the browser engine built into Safari, Google Chrome, iOS, Android, and BlackBerry.</p>"
+  "description": "<p>WebKitBits is a tumblog I maintain about WebKit: the browser engine built into Safari, Google Chrome, iOS, Android, and BlackBerry. Between you and me, WebKitBits could use some love&hellip;</p>"
 }]
